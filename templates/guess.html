@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Number Guessing Game</title>
+    <meta name="description" content="Number Guessing Game with Flask">
+  </head>
+  <body>
+    <h1>Welcome to the Number Guessing Game!</h1>
+    <h2>Guess a number by clicking a link</h2>
+    
+    {% set secret = 25 %}
+    
+    <p>{{ message }}</p>
+    
+    <p>
+      <ul>
+      {% for number in numbers %}
+     <li><a href={{ url_for('response', guess=number) }}>{{ number }}</a></li>
+
+      {% endfor %}
+      </ul>
+    </p>
+    
+   
+
+  </body>
+</html>

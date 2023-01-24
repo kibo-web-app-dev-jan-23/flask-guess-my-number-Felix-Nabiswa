@@ -2,27 +2,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Number Guessing Game</title>
+    <title>Guess My Number</title>
     <meta name="description" content="Number Guessing Game with Flask">
   </head>
   <body>
     <h1>Welcome to the Number Guessing Game!</h1>
     <h2>Guess a number by clicking a link</h2>
-    
-    {% set secret = 25 %}
-    
-    <p>{{ message }}</p>
-    
-    <p>
-      <ul>
-      {% for number in numbers %}
-     <li><a href={{ url_for('response', guess=number) }}>{{ number }}</a></li>
+    {% if guess == secret_number %}
+        <p>Congratulations! The secret number is {{ guess }}</p>
+    {% elif guess > secret_number %}
+        <p>The guess is too high. Please try again.</p>
+    {% else %}
+        <p>The guess is too low. Please try again.</p>
+    {% endif %}
 
-      {% endfor %}
-      </ul>
-    </p>
+    <p> <a href= {{ url_for('index') }}> Click here to retry.</a> </p>
     
-   
-
   </body>
 </html>

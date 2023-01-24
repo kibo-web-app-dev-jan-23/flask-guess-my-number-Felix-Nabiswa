@@ -14,7 +14,7 @@ class TestApp(unittest.TestCase):
     
     @weight(2)
     def test_numbers_appear(self):
-        response = self.client.get("/game")
+        response = self.client.get("/game/")
         assert b"1" in response.data
         assert b"10" in response.data
         assert b"45" in response.data
